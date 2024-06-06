@@ -2,12 +2,11 @@
 pipeline {
     agent any
     stages {
-        stage('Validate checkout files') {
+        stage('Build Node App') {
             steps {
                 sh """
-                pwd
-                ls -lart
-                date
+                npm install
+                node ./src/server.js
                 """
             }
         }
