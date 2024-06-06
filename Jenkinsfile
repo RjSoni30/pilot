@@ -8,7 +8,7 @@ pipeline {
             }
         }
         stage('Test') {
-            parallel {
+            // parallel {
                 stage('Unit Tests') {
                     steps {
                         sh 'sleep 5s'
@@ -22,7 +22,7 @@ pipeline {
                         // Add commands to run integration tests
                     }
                 }
-            }
+            // }
         }
         stage('Deploy') {
             steps {
