@@ -1,17 +1,33 @@
-#!/usr/bin/env groovy
 pipeline {
     agent any
     stages {
-        stage('Build Node App') {
+        stage('Build') {
             steps {
-                sh """
-                echo "This is first step"
-                """
+                sh 'echo "Building the application"'
+                // Add commands to build application
             }
-            {
-                sh """
-                echo "This is second step"
-                """
+        }
+        stage('Test') {
+            parallel {
+                stage('Unit Tests') {
+                    steps {
+                        sh 'sleep 5s'
+                        sh 'echo "Running unit tests"'
+                        // Add commands to run unit tests
+                    }
+                }
+                stage('Integration Tests') {
+                    steps {
+                        sh 'echo "Running integration tests"'
+                        // Add commands to run integration tests
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying the application"'
+                // Add commands to deploy application
             }
         }
     }
