@@ -8,7 +8,7 @@ pipeline {
                 echo "This is first step"
                 """
             }
-            steps {
+            {
                 sh """
                 echo "This is second step"
                 """
