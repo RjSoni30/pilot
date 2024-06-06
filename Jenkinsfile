@@ -5,8 +5,12 @@ pipeline {
         stage('Build Node App') {
             steps {
                 sh """
-                npm install
-                node ./src/server.js
+                echo "This is first step"
+                """
+            }
+            steps {
+                sh """
+                echo "This is second step"
                 """
             }
         }
